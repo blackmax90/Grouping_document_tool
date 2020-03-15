@@ -1,4 +1,4 @@
-#Grouping_document_tool
+$Grouping_document_tool
 
 ## INTRODUCTION
 
