@@ -13,7 +13,11 @@ This tools can group the documents(MS Office - .docx, .doc, .pptx, .ppt, .xlsx, 
   
 **Selecting directory path**
 
-	Type directory path: "Path" ex) ./sample or sample
+	Type directory path: "Path" ex) ./sample or C:/Users/username/Downloads/sample
+
+**Selecting output directory path**
+
+	Type output path: "Path" ex) ./ or d:/Result
  
  **Selecting feature**
  
