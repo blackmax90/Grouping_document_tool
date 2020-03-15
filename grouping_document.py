@@ -242,11 +242,12 @@ def layoutCompare(a,b):
 
 def insertionSort(x):
     for i in range(1, len(x)):
-        while i > 0 and x[i-1].modifiedtime_filesystem > x[i].modifiedtime_filesystem:
-            temp = x[i - 1]
-            x[i - 1] = x[i]
-            x[i] = temp
-            i = i - 1
+        if str(x[i-1].modifiedtime) != '':
+            while i > 0 and datetime.strptime(x[i-1].modifiedtime, "%Y-%m-%dT%H:%M:%SZ") > datetime.strptime(x[i].modifiedtime, "%Y-%m-%dT%H:%M:%SZ"):
+                temp = x[i - 1]
+                x[i - 1] = x[i]
+                x[i] = temp
+                i = i - 1
     return x
 
 def Recur_clustering_function(Clustered_group, relatedFile):
@@ -352,9 +353,9 @@ def Visualization(notrelatedFileList, Clustered_group_final, relatedFileList):
                         G.add_edge(i.filepath, j.filepath, weight=0)
                     else:
                         G.add_edge(j.filepath, i.filepath, weight=0)
-                elif i.modifiedtime_filesystem > j.modifiedtime_filesystem:
+                elif datetime.strptime(i.modifiedtime, "%Y-%m-%dT%H:%M:%SZ") > datetime.strptime(j.modifiedtime, "%Y-%m-%dT%H:%M:%SZ"):
                     G.add_edge(i.filepath, j.filepath, weight=1)
-                elif i.modifiedtime_filesystem < j.modifiedtime_filesystem:
+                elif datetime.strptime(i.modifiedtime, "%Y-%m-%dT%H:%M:%SZ") < datetime.strptime(j.modifiedtime, "%Y-%m-%dT%H:%M:%SZ"):
                     G.add_edge(j.filepath, i.filepath, weight=1)
 
     esame = [(u, v) for (u, v, d) in G.edges(data=True) if d['weight'] == 0]
