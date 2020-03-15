@@ -9,5 +9,12 @@ The author developed an automation tool for document grouping for the experiment
 
 ## USAGE
 
+	python main.py
+  
+**Select directory path**
+
+	python main.py
+  
+
 
 ## DEPENDENCY
