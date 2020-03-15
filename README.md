@@ -9,15 +9,27 @@ The author developed an automation tool for document grouping for the experiment
 
 ## USAGE
 
-	python main.py
+**Getting started**
+	python grouping_document.py
   
-**Select directory path**
+**Selecting directory path**
 
-	python main.py
-  
+	Type directory path: "Path" ex) ./sample or sample
+ 
+ **Selecting feature**
+ 
+ 	[Feature List]
+	1. Company
+	2. Author
+	3. Last Saved By
+	4. Layout
+	5. RSID
+	6. Company, Author, Last Saved By
+	7. Everything
+	
+	Select the feature: number ex) 7
+ 
 ## SAMPLE DATA
-'sample' foloder
-or 
-http://downloads.digitalcorpora.org/corpora/files/govdocs1/by_type/docx.zip
+'sample' foloder or http://downloads.digitalcorpora.org/corpora/files/govdocs1/by_type/docx.zip
 
 ## DEPENDENCY
