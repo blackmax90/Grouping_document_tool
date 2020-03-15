@@ -30,7 +30,7 @@ This tools can group the documents by selecting the desired feature (Company, au
 	Select the feature: number ex) 7
  
 ## RESULT
-
+2020-3-15_17-35-4_Result
 ![results](https://user-images.githubusercontent.com/17299107/76698445-5acb3700-66e6-11ea-9203-5fb605cf21f5.png)
  
 ## SAMPLE DATA
