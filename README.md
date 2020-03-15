@@ -5,7 +5,7 @@ This tools can group the documents(MS Office - .docx, .doc, .pptx, .ppt, .xlsx, 
 
 ## USAGE
 
-![program_running](https://user-images.githubusercontent.com/17299107/76698221-b1834180-66e3-11ea-8595-ea5ba3bf2363.PNG)
+![image](https://user-images.githubusercontent.com/17299107/76701587-e56f5e80-6705-11ea-9005-8dcd3f3057f5.png)
 
 **Getting started**
 
