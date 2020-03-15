@@ -6,7 +6,7 @@ The author developed an automation tool for document grouping for the experiment
 
 ## OVERVIEW
 
-https://github.com/blackmax90/Grouping_document_tool/issues/1#issue-581583248
+![program_running](https://user-images.githubusercontent.com/17299107/76698221-b1834180-66e3-11ea-8595-ea5ba3bf2363.PNG)
 
 ## USAGE
 
