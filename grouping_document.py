@@ -58,7 +58,7 @@ def Searchfile(dirname):
 
     return 0
 
-def ExtractInformation(search_file_name_list, search_file_path_list):
+def ExtractInformation(search_file_name_list, search_file_path_list, path):
     file_list = []
     for i in range(0, len(search_file_path_list)):
         file_info = FileInformaiton()
@@ -74,13 +74,13 @@ def ExtractInformation(search_file_name_list, search_file_path_list):
             try:
                 with ZipFile(file_list_single.filepath) as zf:
                     fantasy_zip = zipfile.ZipFile(file_list_single.filepath)
-                    fantasy_zip.extractall('./extracted')
+                    fantasy_zip.extractall(output_path_dir + '/' + now + '_Result/extracted')
                     fantasy_zip.close()
 
                     # docx
                     if ext == '.docx':
                         # Extracting RSID in document.xml
-                        tree = ET.parse("./extracted/word/document.xml")
+                        tree = ET.parse(output_path_dir + '/' + now + '_Result/extracted/word/document.xml')
                         root = tree.getroot()
                         product = root[0]
 
@@ -146,7 +146,7 @@ def ExtractInformation(search_file_name_list, search_file_path_list):
                                         file_list_single.layout.pgMar_g = layout_vendor.attrib.get("{http://schemas.openxmlformats.org/wordprocessingml/2006/main}gutter")
 
                     # app.xml (Company)
-                    tree = ET.parse("./extracted/docProps/app.xml")
+                    tree = ET.parse(output_path_dir + '/' + now + '_Result/extracted/docProps/app.xml')
                     root = tree.getroot()
 
                     for vendor in root:
@@ -159,7 +159,7 @@ def ExtractInformation(search_file_name_list, search_file_path_list):
                                 file_list_single.company = vendor.text
 
                     # core.xml (creator, lastmodifiedby)
-                    tree = ET.parse("./extracted/docProps/core.xml")
+                    tree = ET.parse(output_path_dir + '/' + now + '_Result/extracted/docProps/core.xml')
                     root = tree.getroot()
 
                     for vendor in root:
@@ -205,7 +205,7 @@ def ExtractInformation(search_file_name_list, search_file_path_list):
             print(file_list_single.filepath)
             print('—————————————————————————————————————————————————')
 
-    shutil.rmtree('./extracted/')
+    shutil.rmtree(output_path_dir + '/' + now + '_Result/extracted/')
     return file_list
 
 def compareRSID(first, second):
@@ -316,15 +316,15 @@ def ClusteringFuction(finalFileList, optionNumber):
 
     print("[Completed grouping documents]")
 
-    with open('./'+now+'_Result/result.csv', 'w', newline='') as cf:
+    with open(output_path_dir + '/' + now + '_Result/result.csv', 'w', newline='') as cf:
         wr = csv.writer(cf)
         for temp in range(0, len(Clustered_group_final)):
             wr.writerow(['Group '+str(temp)])
-            if not (os.path.isdir('./'+now+'_Result/GROUP'+str(temp))):
-                os.makedirs(os.path.join('./'+now+'_Result/GROUP'+str(temp)))
+            if not (os.path.isdir(output_path_dir + '/' + now + '_Result/GROUP'+str(temp))):
+                os.makedirs(os.path.join(output_path_dir + '/' + now + '_Result/GROUP'+str(temp)))
             for i in range(0, len(Clustered_group_final[temp])):
                 wr.writerow([Clustered_group_final[temp][i].filepath, Clustered_group_final[temp][i].company, Clustered_group_final[temp][i].author, Clustered_group_final[temp][i].lastsaved])
-                shutil.copy(Clustered_group_final[temp][i].filepath, './'+now+'_Result/GROUP'+str(temp))
+                shutil.copy(Clustered_group_final[temp][i].filepath, output_path_dir + '/' + now + '_Result/GROUP'+str(temp))
             wr.writerow([' '])
     print(" ")
     print("---------------[Result]---------------")
@@ -365,15 +365,19 @@ def Visualization(notrelatedFileList, Clustered_group_final, relatedFileList):
     nx.draw_networkx_edges(G, pos, edgelist=ediff, width=1.0, edge_color='green', arrowsize=10)
     nx.draw_networkx_edges(G, pos, edgelist=esame, width=1.0, edge_color='red', arrowsize=10)
     plt.axis('off')
-    plt.savefig('./' + now + '_Result/weighted_graph.png')  # save as
+    plt.savefig(output_path_dir + '/' + now + '_Result/weighted_graph.png')  # save as
     plt.show()
 
 # main
 now = datetime.now()
 now = "%s-%s-%s_%s-%s-%s" % (now.year, now.month, now.day, now.hour, now.minute, now.second)
 
-os.makedirs(os.path.join('./'+now+'_Result'))
+#os.makedirs(os.path.join('./'+now+'_Result'))
 path_dir = input("Type directory path : ")
+output_path_dir = input("Type output path : ")
+if not (os.path.isdir(output_path_dir + '/' + now + '_Result/')):
+    os.makedirs(os.path.join(output_path_dir + '/' + now + '_Result/'))
+
 Searchfile(path_dir)
 #Searchfile('./sample')
 
@@ -391,7 +395,7 @@ optionNumber = input("Select the feature: ")
 print(" ")
 
 print("[Extracting documents information...]")
-finalFileList = ExtractInformation(search_file_name_list, search_file_path_list)
+finalFileList = ExtractInformation(search_file_name_list, search_file_path_list, output_path_dir)
 notrelatedFileList, finalClutered, relatedFileList = ClusteringFuction(finalFileList, optionNumber)
 #notrelatedFileList, finalClutered, relatedFileList = ClusteringFuction(finalFileList, '7')
 Visualization(notrelatedFileList, finalClutered, relatedFileList)
