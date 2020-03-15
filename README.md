@@ -1,4 +1,4 @@
-# DFRWS_Grouping_document_tool
+#Grouping_document_tool
 
 ## INTRODUCTION
 
