@@ -17,7 +17,7 @@ This tools can group the documents(MS Office - .docx, .doc, .pptx, .ppt, .xlsx, 
 
 **Selecting output directory path**
 
-	Type output path: "Path" ex) ./ or d:/Result
+	Type output path: "Path" ex) ./ or d:/result
  
  **Selecting feature**
  
