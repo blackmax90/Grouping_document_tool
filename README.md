@@ -16,7 +16,8 @@ The author developed an automation tool for document grouping for the experiment
 	python main.py
   
 ## SAMPLE DATA
-
+'sample' foloder
+or 
 http://downloads.digitalcorpora.org/corpora/files/govdocs1/by_type/docx.zip
 
 ## DEPENDENCY
