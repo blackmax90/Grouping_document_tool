@@ -1,8 +1,7 @@
 # Grouping_document_tool
 
 ## INTRODUCTION
-
-This tools can group the documents by selecting the desired feature (Company, author, last saved by, layout, RSID, property information, and everything). Considering the efficiency of the investigation, the tool can easily view only the grouped document files by copying the grouped document files and storing them in folders. In addition, the details of the grouped document files (filename, company, author, last modified by, etc.) are saved in the .csv file. Finally, the flow of document files grouped in chronological order is visualized by the arrow.
+This tools can group the documents(MS Office - .docx, .doc, .pptx, .ppt, .xlsx, .xls) by selecting the desired feature (Company, author, last saved by, layout, RSID (.docx only), property information, and everything). Considering the efficiency of the investigation, the tool can easily view only the grouped document files by copying the grouped document files and storing them in folders. In addition, the details of the grouped document files (filename, company, author, last modified by, etc.) are saved in the .csv file. Finally, the flow of document files grouped in chronological order is visualized by the arrow.
 
 ## USAGE
 
@@ -37,3 +36,7 @@ ex) 2020-3-15_17-35-4_Result
 'sample' foloder or http://downloads.digitalcorpora.org/corpora/files/govdocs1/by_type/docx.zip
 
 ## DEPENDENCY
+- Python3.6+
+- olefile
+- networkx
+- matplotlib
