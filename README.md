@@ -31,7 +31,7 @@ This tools can group the documents by selecting the desired feature (Company, au
  
 ## RESULT
 
-![results](https://user-images.githubusercontent.com/17299107/76698428-1fc90380-66e6-11ea-9eb4-72d5d7b45d00.png)
+![results](https://user-images.githubusercontent.com/17299107/76698445-5acb3700-66e6-11ea-9203-5fb605cf21f5.png)
  
 ## SAMPLE DATA
 'sample' foloder or http://downloads.digitalcorpora.org/corpora/files/govdocs1/by_type/docx.zip
