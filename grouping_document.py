@@ -306,12 +306,20 @@ def ClusteringFuction(finalFileList, optionNumber):
         Clustered_group.append(Clustered_group_file_list)
         Clustered_group[i].append(relatedFileList[i])
         Recur_clustering_function(Clustered_group[i], relatedFileList[i])
-        insertionSort(Clustered_group[i])
+        #insertionSort(Clustered_group[i])
 
     Clustered_group_final = []
     for i in Clustered_group:
-        if i in Clustered_group_final:
-            continue
+        duplicated = 0
+        if len(Clustered_group_final) > 0:
+            for j in Clustered_group_final:
+                if set(i) == set(j):
+                    duplicated = 0
+                    break
+                else:
+                    duplicated = 1
+            if duplicated == 1:
+                Clustered_group_final.append(i)
         else:
             Clustered_group_final.append(i)
 
